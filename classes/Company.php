@@ -1,6 +1,6 @@
 <?php
 
-class Person
+class Company
 {
     private static $conn;
 
@@ -20,42 +20,42 @@ class Person
         return self::$conn;
     }
 
-    public static function save($person)
+    public static function save($company)
     {
         $conn = self::getConnection();
-        if (empty($person['id'])) {
+        if (empty($company['id'])) {
             $result = $conn->query("SELECT max(id) as next FROM companies");
             $row = $result->fetch();
-            $person['id'] = (int)$row['next'] + 1;
+            $company['id'] = (int)$row['next'] + 1;
 
-            /* INSERT INTO companies (id, cnpj, name, fantasy, cep, address, neighborhood, 
-            complement, number, phone, mail, city, uf) VALUES(:id, :cnpj, :name, :fantasy, :cep, :address, :neighborhood, :complement, :number, :phone, :mail, :city, :uf)" */
-            $sql = "INSERT INTO companies (id, cnpj, name, fantasy, cep, address, neighborhood, complement, number, phone, mail, city, uf)
-             VALUES(:id, :cnpj, :name, :fantasy, :cep, :address, :neighborhood, :complement, :number, :phone, :mail, :city, :uf)";
+            /* INSERT INTO companies (id, cnpj, name, fantasy, cep, address, neighborhood,
+            complement, number, phone, mail, city, state) VALUES(:id, :cnpj, :name, :fantasy, :cep, :address, :neighborhood, :complement, :number, :phone, :mail, :city, :state)" */
+            $sql = "INSERT INTO companies (id, cnpj, name, fantasy, cep, address, district, complement, number, phone, mail, city, state)
+             VALUES(:id, :cnpj, :name, :fantasy, :cep, :address, :district, :complement, :number, :phone, :mail, :city, :state)";
             /*  $sql = "INSERT INTO people
              (id, name, cep, address, district, phone, mail, city, state) VALUES
              (:id, :name, :cep, :address, :district, :phone, :mail, :city, :state)"; */
         } else {
-            $sql = "UPDATE companies SET cnpj = :cnpj, name = :name, fantasy = :fantasy, cep = :cep, address = :address, neighborhood = :neighborhood, complement = :complement, number = :number, phone = :phone,  mail = :mail, city = :city, uf = :uf  WHERE id = :id ";
+            $sql = "UPDATE companies SET cnpj = :cnpj, name = :name, fantasy = :fantasy, cep = :cep, address = :address, district = :district, complement = :complement, number = :number, phone = :phone,  mail = :mail, city = :city, state = :state  WHERE id = :id ";
         }
 
         $result = $conn->prepare($sql);
 
         return $result->execute(
             [
-                ':id' => $person['id'],
-                ':cnpj' => $person['cnpj'],
-                ':name' => $person['name'],
-                ':fantasy' => $person['fantasy'],
-                ':cep' => $person['cep'],
-                ':address' => $person['address'],
-                ':neighborhood' => $person['district'],
-                ':complement' => $person['complement'],
-                ':number' => $person['number'],
-                ':phone' => $person['phone'],
-                ':mail' => $person['mail'],
-                ':city' => $person['city'],
-                ':uf' => $person['state']
+                ':id' => $company['id'],
+                ':cnpj' => $company['cnpj'],
+                ':name' => $company['name'],
+                ':fantasy' => $company['fantasy'],
+                ':cep' => $company['cep'],
+                ':address' => $company['address'],
+                ':district' => $company['district'],
+                ':complement' => $company['complement'],
+                ':number' => $company['number'],
+                ':phone' => $company['phone'],
+                ':mail' => $company['mail'],
+                ':city' => $company['city'],
+                ':state' => $company['state']
             ]
         );
     }
