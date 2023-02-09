@@ -24,14 +24,19 @@ class Person
     {
         $conn = self::getConnection();
         if (empty($person['id'])) {
-            $result = $conn->query("SELECT max(id) as next FROM people");
+            $result = $conn->query("SELECT max(id) as next FROM companies");
             $row = $result->fetch();
             $person['id'] = (int)$row['next'] + 1;
-            $sql = "INSERT INTO people
-                                    (id, name, cep, address, district, phone, mail, city, state) VALUES
-                                    (:id, :name, :cep, :address, :district, :phone, :mail, :city, :state)";
+
+            /* INSERT INTO companies (id, cnpj, name, fantasy, cep, address, neighborhood, 
+            complement, number, phone, mail, city, uf) VALUES(:id, :cnpj, :name, :fantasy, :cep, :address, :neighborhood, :complement, :number, :phone, :mail, :city, :uf)" */
+            $sql = "INSERT INTO companies (id, cnpj, name, fantasy, cep, address, neighborhood, complement, number, phone, mail, city, uf)
+             VALUES(:id, :cnpj, :name, :fantasy, :cep, :address, :neighborhood, :complement, :number, :phone, :mail, :city, :uf)";
+            /*  $sql = "INSERT INTO people
+             (id, name, cep, address, district, phone, mail, city, state) VALUES
+             (:id, :name, :cep, :address, :district, :phone, :mail, :city, :state)"; */
         } else {
-            $sql = "UPDATE people SET name = :name, cep=:cep, address = :address, district = :district, phone = :phone, mail = :mail, city = :city, state= :state WHERE id = :id ";
+            $sql = "UPDATE companies SET cnpj = :cnpj, name = :name, fantasy = :fantasy, cep = :cep, address = :address, neighborhood = :neighborhood, complement = :complement, number = :number, phone = :phone,  mail = :mail, city = :city, uf = :uf  WHERE id = :id ";
         }
 
         $result = $conn->prepare($sql);
@@ -39,14 +44,18 @@ class Person
         return $result->execute(
             [
                 ':id' => $person['id'],
+                ':cnpj' => $person['cnpj'],
                 ':name' => $person['name'],
+                ':fantasy' => $person['fantasy'],
                 ':cep' => $person['cep'],
                 ':address' => $person['address'],
-                ':district' => $person['district'],
+                ':neighborhood' => $person['district'],
+                ':complement' => $person['complement'],
+                ':number' => $person['number'],
                 ':phone' => $person['phone'],
                 ':mail' => $person['mail'],
                 ':city' => $person['city'],
-                ':state' => $person['state']
+                ':uf' => $person['state']
             ]
         );
     }
@@ -60,7 +69,7 @@ class Person
     public static function find($id)
     {
         $conn = self::getConnection();
-        $result = $conn->query("SELECT * FROM people WHERE id='{$id}'");
+        $result = $conn->query("SELECT * FROM companies WHERE id='{$id}'");
 
         return $result->fetch();
     }
@@ -68,7 +77,7 @@ class Person
     public static function delete($id)
     {
         $conn = self::getConnection();
-        $result = $conn->query("DELETE FROM people WHERE id='{$id}'");
+        $result = $conn->query("DELETE FROM companies WHERE id='{$id}'");
 
         return $result;
     }
@@ -76,7 +85,7 @@ class Person
     public static function all()
     {
         $conn = self::getConnection();
-        $result = $conn->query("SELECT * FROM people");
+        $result = $conn->query("SELECT * FROM companies");
 
         return $result;
     }

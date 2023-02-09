@@ -30,13 +30,13 @@
                     $row = file_get_contents('html/row.html');
                     
                     $row = str_replace(
-                        ['{id}', '{name}', '{address}','{district}','{phone}'],
+                        ['{company_name}', '{company_city}', '{company_state}','{company_phone}','{company_mail}'],
                         [
-                            $person['id'],
                             $person['name'],
-                            $person['address'],
-                            $person['district'],
-                            $person['phone']
+                            $person['city'],
+                            $person['uf'],
+                            $person['phone'],
+                            $person['mail']
                         ],
                         $row
                     );

@@ -52,17 +52,21 @@
         public function show()
         {
             $this->html = str_replace(
-                ['{id}', '{name}', '{cep}', '{address}', '{district}', '{phone}', '{mail}', '{city}', '{state}', '{cnpj}', '{fantasy}', '{complement}', '{number}'],
+                ['{id}','{cnpj}', '{name}', '{fantasy}', '{cep}', '{address}', '{district}', '{complement}', '{number}', '{phone}', '{mail}', '{city}', '{state}'],
                 [
                     $this->data['id'],
+                    $this->data['cnpj'],
                     $this->data['name'],
+                    $this->data['fantasy'],
                     $this->data['cep'],
                     $this->data['address'],
-                    $this->data['district'],
+                    $this->data['neighborhood'],
+                    $this->data['complement'],
+                    $this->data['number'],
                     $this->data['phone'],
                     $this->data['mail'],
                     $this->data['city'],
-                    $this->data['state'],
+                    $this->data['uf'],
                     $this->data['cnpj'],
                     $this->data['fantasy'],
                     $this->data['complement'],
