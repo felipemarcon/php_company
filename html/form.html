@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Atualizar Pessoas</title>
     <link rel="stylesheet" href="_css/form.css">
@@ -15,13 +16,23 @@
 
 <body>
 
-<form action="index.php?class=PersonForm&method=save" class="form_capitalize" method="post"
-      enctype="multipart/form-data">
+    <form action="index.php?class=PersonForm&method=save" class="form_capitalize" method="post"
+        enctype="multipart/form-data">
 
-    <label for="id">Código</label>
+        <div class="form-group float-input">
+            <input type="text" name="name" id="name" value="{name}" required style="width: 50%" readonly>
+            <label>Id</label>
+        </div>
+
+        <div class="form-group float-input">
+            <input type="text" name="name" id="name" value="{name}" required style="width: 50%">
+            <label>Nome da Empresa</label>
+        </div>
+
+        <!--  <label for="id">Código</label>
     <input type="number" name="id" id="id" value="{id}" readonly style="width: 30%">
 
-    <label for="name">Nome</label>
+    <label for="name">Nome Da Empresa</label>
     <input type="text" name="name" id="name" value="{name}" required style="width: 50%">
 
     <label for="cep">CEP</label>
@@ -54,8 +65,9 @@
             <img src='images/icons8-settings-50.svg' style='width:25px'>
             SALVAR
         </button>
-    </label>
-</form>
+    </label> -->
+    </form>
 
 </body>
+
 </html>

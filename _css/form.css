@@ -7,9 +7,55 @@
 
 body {
     padding: 50px 0;
+    background: black;
 }
 
-.font_red{
+.form-group {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.float-input input[type="text"],
+.float-input input[type="tel"],
+.float-input input[type="email"] {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1.2rem;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.float-input input[type="text"]:focus,
+.float-input input[type="tel"]:focus,
+.float-input input[type="email"]:focus {
+    border: 1px solid #007bff;
+    box-shadow: 0 0 10px #007bff;
+}
+
+.float-input label {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    pointer-events: none;
+    transition: top 0.3s, font-size 0.3s;
+}
+
+.float-input input[type="text"]:focus~label,
+.float-input input[type="tel"]:focus~label,
+.float-input input[type="email"]:focus~label,
+.float-input input[type="text"]:valid~label,
+.float-input input[type="tel"]:valid~label,
+.float-input input[type="email"]:valid~label {
+    top: -2rem;
+    font-size: 1rem;
+}
+
+
+.font_red {
     color: red;
 }
 
@@ -23,21 +69,23 @@ form {
     border-radius: 16px;
 }
 
-form > label,
-form > input,
-form > select {
+form>label,
+form>input,
+form>select {
     float: left;
     margin-top: 5px;
-    
+
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
     border-radius: 4px;
     border: 1px solid #D9D7D7;
     padding: 12px;
 }
 
-form > label {
+form>label {
     clear: both;
     width: 25%;
 }
@@ -47,8 +95,8 @@ input[readonly] {
     border: 1px solid #B0B0B0;
 }
 
-form > input[type='submit'],
-form > button {
+form>input[type='submit'],
+form>button {
     margin-left: 25%;
     clear: both;
 }
@@ -66,10 +114,11 @@ form > button {
     margin-top: 15px !important;
     text-transform: uppercase;
     display: flex;
-    align-items: center;clear: both;
+    align-items: center;
+    clear: both;
 }
 
-.btn > img {
+.btn>img {
     margin-right: 8px;
 }
 
@@ -111,11 +160,13 @@ form > button {
     border-radius: 6px;
     box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.1), inset 0 0 8px 2px rgba(0, 0, 0, 0.1);
 }
+
 .trigger-sucess {
     border: 2px solid #608D67;
     background-color: #B2ECBB;
     color: #2A2A2A;
 }
+
 .trigger-error {
     border: 2px solid #EA2A3C;
     background-color: rgba(253, 66, 77, 0.74);
@@ -127,7 +178,8 @@ form > button {
     display: flex;
     justify-content: center;
 }
-.actions > * {
+
+.actions>* {
     margin: 6px;
     text-decoration: none;
 }
