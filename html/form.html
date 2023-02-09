@@ -19,30 +19,36 @@
     <form action="index.php?class=PersonForm&method=save" class="form_capitalize" method="post"
         enctype="multipart/form-data">
 
-        <div class="form-group float-input">
-            <input type="text" name="name" id="name" value="{name}" required style="width: 50%" readonly>
-            <label>Id</label>
-        </div>
-
-        <div class="form-group float-input">
-            <input type="text" name="name" id="name" value="{name}" required style="width: 50%">
-            <label>Nome da Empresa</label>
-        </div>
-
-        <!--  <label for="id">Código</label>
+        <!-- Teste commit em casa -->
+     
+         <label for="id">Código</label>
     <input type="number" name="id" id="id" value="{id}" readonly style="width: 30%">
 
+    <label for="cnpj">Cnpj</label>
+    <input type="text" name="cnpj" required class="wc_getCnpj .formCnpj" id="cnpj" value="{cnpj}"  style="width: 50%">
+    
+
     <label for="name">Nome Da Empresa</label>
-    <input type="text" name="name" id="name" value="{name}" required style="width: 50%">
+    <input type="text" name="name" id="name" class="wc_nome" value="{name}" required style="width: 50%">
+
+    <label for="fantasy">Fantasia</label>
+    <input type="text" name="fantasy" id="fantasy" class="wc_fantasia" value="{fantasy}" required style="width: 50%">
 
     <label for="cep">CEP</label>
-    <input type="text" name="cep" id="cep" class="wc_getCep formCep" value="{cep}" required style="width: 50%">
+    <input type="text" name="cep" id="cep" class="wc_getCep formCep wc_cep" value="{cep}" required style="width: 50%">
 
     <label for="address">Endereço</label>
-    <input type="text" name="address" id="address" class="cep_address" value="{address}" required style="width: 50%">
+    <input type="text" name="address" id="address" class="wc_logradouro" value="{address}" required style="width: 50%">
 
     <label for="district">Bairro</label>
-    <input type="text" name="district" id="district" class="cep_district" value="{district}" required style="width: 50%">
+    <input type="text" name="district" id="district" class="wc_bairro" value="{district}" required style="width: 50%">
+    
+    <label for="complement">Complemento</label>
+    <input type="text" name="complement" id="complement" class="wc_complemento" value="{complement}" required style="width: 50%">
+    
+    <label for="number">Numero</label>
+    <input type="text" name="number" id="number" class="wc_numero" value="{number}" required style="width: 50%">
+    
 
     <label for="phone">Telefone</label>
     <input type="text" name="phone" id="phone" class="formPhone" value="{phone}" required style="width: 50%">
@@ -51,10 +57,10 @@
     <input type="email" name="mail" id="mail" value="{mail}" required style="width: 50%">
 
     <label for="city">Cidade</label>
-    <input type="text" name='city' id="city" class="cep_city" value="{city}" required style='width: 50%'>
+    <input type="text" name='city' id="city" class="wc_municipio" value="{city}" required style='width: 50%'>
 
     <label for="state">UF</label>
-    <input type="text" name='state' id="state" class="cep_uf" value="{state}" required style='width: 50%'>
+    <input type="text" name='state' id="state" class="wc_uf" value="{state}" required style='width: 50%'>
 
     <label class="actions">
         <a href="index.php?class=PersonList" class="btn btn-ligth-gray">
@@ -65,7 +71,7 @@
             <img src='images/icons8-settings-50.svg' style='width:25px'>
             SALVAR
         </button>
-    </label> -->
+    </label>
     </form>
 
 </body>

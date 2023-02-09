@@ -12,7 +12,11 @@
             $this->html = file_get_contents('html/form.html');
             $this->data = [
                 'id' => null,
+                'cnpj' => null,
                 'cep' => null,
+                'complement' => null,
+                'number' => null,
+                'fantasy' => null,
                 'name' => null,
                 'address' => null,
                 'district' => null,
@@ -48,7 +52,7 @@
         public function show()
         {
             $this->html = str_replace(
-                ['{id}', '{name}', '{cep}', '{address}', '{district}', '{phone}', '{mail}', '{city}', '{state}'],
+                ['{id}', '{name}', '{cep}', '{address}', '{district}', '{phone}', '{mail}', '{city}', '{state}', '{cnpj}', '{fantasy}', '{complement}', '{number}'],
                 [
                     $this->data['id'],
                     $this->data['name'],
@@ -58,7 +62,11 @@
                     $this->data['phone'],
                     $this->data['mail'],
                     $this->data['city'],
-                    $this->data['state']
+                    $this->data['state'],
+                    $this->data['cnpj'],
+                    $this->data['fantasy'],
+                    $this->data['complement'],
+                    $this->data['number']
                 ],
                 $this->html
             );
