@@ -1,33 +1,22 @@
-<!-- <tr>
-    <td class='center'>
+<article>
+    <header>
+        <h2>{company_name}</h2>
+        <p>Cidade: {company_city}</p>
+        <p>{company_state}</p>
+        <p>{company_phone}</p>
+        <p>{company_mail}</p>
+    </header>
+
+    <footer>
         <a href='index.php?class=CompanyForm&method=edit&id={id}'>
-            <img src='images/icons8-edit-50.svg' style='width:25px'>
+            <img src='images/icons8-edit-50.svg'>
         </a>
-    </td>
-    <td class='center'>
+
         <a href='index.php?class=CompanyList&method=delete&id={id}'>
-            <img src='images/icons8-trash-can-50.svg' style='width:25px'>
+            <img src='images/icons8-trash-can-50.svg'>
         </a>
-    </td>
-    <td> {company_name}</td>
-    <td> {company_city}</td>
-    <td> {company_state}</td>
-    <td> {company_phone}</td>
-    <td> {company_mail}</td>
-</tr> -->
-<div class="boxz">
-    <h5>{company_name}</h5>
-    <h5>Cidade: {company_city}</h5>
-    <h5>{company_state}</h5>
-    <h5>{company_phone}</h5>
-    <h5>{company_mail}</h5>
+    </footer>
 
-    <a href='index.php?class=CompanyForm&method=edit&id={id}'>
-        <img src='images/icons8-edit-50.svg' style='width:25px'>
-    </a>
 
-    <a href='index.php?class=CompanyList&method=delete&id={id}'>
-        <img src='images/icons8-trash-can-50.svg' style='width:25px'>
-    </a>
 
-</div>
+</article>

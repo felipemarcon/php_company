@@ -15,7 +15,7 @@ $(function () {
                     if (!data.erro) {
                         $('.wc_nome').val(data.nome);
                         $('.wc_fantasia').val(data.fantasia);
-                        $('.wc_telefone').val(data.telefone);
+                        $('#phone').val(data.telefone);
                         $('.wc_logradouro').val(data.logradouro);
                         $('.wc_numero').val(data.numero);
                         $('.wc_complemento').val(data.complemento);
@@ -23,7 +23,8 @@ $(function () {
                         $('.wc_cep').val(data.cep.replace('.', ''));
                         $('.wc_municipio').val(data.municipio);
                         $('.wc_uf').val(data.uf);
-                        $('.wc_country').val('31');
+                        $('#mail').val(data.email);
+
 
                     } else {
                         Trigger("<div class='trigger trigger_ajax trigger_error' >CNPJ não encontrado na Receita Federal.</div>");
@@ -36,7 +37,7 @@ $(function () {
         }
     });
 
-       //############## GET CEP
+    //############## GET CEP
     $('.wc_getCep').on('change', function () {
         var cep = $(this).val().replace('-', '').replace('.', '');
         if (cep.length === 8) {
@@ -61,7 +62,7 @@ $(function () {
         $(".formCpf").mask("999.999.999-99");
         $(".formCnpj").mask("99.999.999/9999-99");
         $(".formPercent").mask("99%");
-        $(".formMoney").mask("#.##0,00", {reverse: true});
+        $(".formMoney").mask("#.##0,00", { reverse: true });
 
         var SPMaskBehavior = function (val) {
             return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
@@ -86,8 +87,8 @@ $(function () {
     }
 
     if ($('.trigger-sucess').length) {
-        setTimeout(function (){
-            window.location.href= 'index.php?class=PersonList';
+        setTimeout(function () {
+            window.location.href = 'index.php?class=CompanyList';
         }, 2000);
     }
 
@@ -101,24 +102,24 @@ $(function () {
                 $(WcTab).fadeIn(200).addClass('wc_active');
             }).removeClass('wc_active');
         }
-        if (!$(this).hasClass('wc_active_go')) {return false;}
+        if (!$(this).hasClass('wc_active_go')) { return false; }
     });
 
     /*############## WC ACCORDION*/
     $('.wc_accordion').click(function () {
-        $('.wc_accordion_toogle_active').slideUp(200, function () {$(this).removeClass('wc_accordion_toogle_active');});
+        $('.wc_accordion_toogle_active').slideUp(200, function () { $(this).removeClass('wc_accordion_toogle_active'); });
         $(this).find('.wc_accordion_toogle:not(.wc_accordion_toogle_active)').slideToggle(200).addClass('wc_accordion_toogle_active');
     });
-    $('.wc_accordion div').click(function (e) {e.stopPropagation();});
+    $('.wc_accordion div').click(function (e) { e.stopPropagation(); });
     /*############## HIGHLIGHT*/
     if ($('*[class="brush: php;"]').length) {
         $("head").append('<link rel="stylesheet" href="' + BASE + '/_cdn/highlight.min.css">');
-        $.getScript(BASE + '/_cdn/highlight.min.js', function () {$('*[class="brush: php;"]').each(function (i, block) {hljs.highlightBlock(block);});});
+        $.getScript(BASE + '/_cdn/highlight.min.js', function () { $('*[class="brush: php;"]').each(function (i, block) { hljs.highlightBlock(block); }); });
     }
     /*############## MODAL BOX*/
     if ($('*[rel*="shadowbox"]').length) {
         $("head").append('<link rel="stylesheet" href="' + BASE + '/_cdn/shadowbox/shadowbox.css">');
-        $.getScript(BASE + '/_cdn/shadowbox/shadowbox.js', function () {Shadowbox.init();});
+        $.getScript(BASE + '/_cdn/shadowbox/shadowbox.js', function () { Shadowbox.init(); });
     }
 
     /*############### CAPITALIZE TEXT FORMS*/

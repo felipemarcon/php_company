@@ -8,37 +8,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Listagem de Pessoas</title>
     <link rel="stylesheet" href="_css/form.css">
-    <link rel="stylesheet" href="_css/table.css">
+    <link rel="stylesheet" href="_css/flexbox.css">
 </head>
 
 <body>
 
     <section class="list">
-        <h2>Listagem de Empresas</h2>
-        <div class="fora">
-
+        <header>
+            <h1>Listagem de Empresas</h1>
+            <button onclick="window.location='index.php?class=CompanyForm'" class="btn btn-ligth-gray">
+                <img src='images/icons8-settings-50.svg' style='width:25px'> Inserir
+            </button>
+        </header>
+        <div class="flex-box">
+            {rows}
         </div>
 
 
-        <!--  <table>
-            <thead>
-                <tr class="header">
-                    <th class='center'><img src='images/icons8-edit-50.svg' style='width:25px'></th>
-                    <th class='center'><img src='images/icons8-trash-can-50.svg' style='width:25px'></th>
-                    <th>Nome</th>
-                    <th>Cidade</th>
-                    <th>Estado</th>
-                    <th>Telefone</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                {rows}
-            </tbody>
-        </table> -->
-        <button onclick="window.location='index.php?class=CompanyForm'" class="btn btn-ligth-gray">
-            <img src='images/icons8-settings-50.svg' style='width:25px'> Inserir
-        </button>
     </section>
 </body>
 
